@@ -1,0 +1,64 @@
+Name,Rarity,Attack,Defense,Intelligence,Speed,Weight,Value,Special/Effect,SubType,PieceType
+Wood,1,1,1,1,1,1,1,null,Material,Metal
+Bronze,0.5,2,2,2,2,2,2,null,Material,Metal
+Iron,0.3,5,5,5,5,3,5,null,Material,Metal
+Steel,0.15,8,8,8,8,3,10,null,Material,Metal
+Gold,0.15,5,5,5,5,3,20,null,Material,Metal
+Titanium,0.03,11,11,11,11,6,25,null,Material,Metal
+Diamond,0.01,15,15,15,15,6,25,null,Material,Metal
+Meteorite,0.005,20,20,20,20,8,50,null,Material,Metal
+Wooden,1,1,1,1,1,1,1,null,Material,Wood
+Oak,0.5,3,3,3,3,3,5,null,Material,Wood
+Willow,0.3,7,7,7,7,7,10,null,Material,Wood
+Yew,0.15,11,11,11,11,4,25,null,Material,Wood
+Elder,0.03,15,15,15,15,6,50,null,Material,Wood
+of Fire,0.15,4,4,0,0,1,25,Fire Damage,Ornament,Ornament
+of Ice,0.15,2,6,0,0,1,25,Ice Damage,Ornament,Ornament
+of Lightning,0.15,6,2,0,0,1,25,Lightning Damage,Ornament,Ornament
+of Blood,0.15,4,0,0,0,1,25,Bleeding Effect,Ornament,Ornament
+of the Sun,0.15,0,8,0,2,1,25,Light Damage,Ornament,Ornament
+of the Moon,0.15,8,0,0,2,1,25,Dark Damage,Ornament,Ornament
+of Dreams,0.15,0,0,10,6,0,25,Sleep Effect,Ornament,Ornament
+of Fear,0.15,0,10,0,8,0,25,Fear Effect,Ornament,Ornament
+Royal,0.3,2,6,0,2,0,5,null,Title,Title
+Peasant's,0.3,2,2,2,2,2,5,null,Title,Title
+Heavy,0.15,10,0,0,0,7,25,null,Title,Title
+Sharp,0.15,2,0,0,8,0,25,null,Title,Title
+Destroyer's,0.15,8,0,0,2,0,10,null,Title,Title
+Ancient,0.15,2,2,7,5,0,10,null,Title,Title
+Abyssal,0.15,10,2,0,4,0,10,null,Title,Title
+Immaculate,0.03,6,0,12,6,0,25,null,Title,Title
+Tyrant's,0.03,8,8,0,8,0,25,null,Title,Title
+Dagger,0.9,1,1,4,6,1,2,null,Weapon_Metal,Sword
+Short Sword,0.5,3,1,4,4,2,4,null,Weapon_Metal,Sword
+Rapier,0.3,3,1,2,6,2,6,null,Weapon_Metal,Sword
+Long Sword,0.5,5,2,2,3,3,4,null,Weapon_Metal,Sword
+Greatsword,0.3,10,5,0,2,6,6,null,Weapon_Metal,Sword
+Shortbow,0.5,6,0,0,8,2,4,null,Weapon_Wood,Bow
+Longbow,0.5,8,0,0,4,4,4,null,Weapon_Wood,Bow
+Crossbow,0.5,10,0,0,6,5,4,null,Weapon_Wood,Bow
+Focus,0.5,1,1,5,7,1,4,null,Weapon_WoodMetal,Staff
+Short Staff,0.5,2,2,7,4,3,4,null,Weapon_WoodMetal,Staff
+Long Staff,0.5,2,4,10,1,5,4,null,Weapon_WoodMetal,Staff
+Axe,0.5,4,2,0,5,3,4,null,Weapon_Metal,Axe
+Double Axe Blade,0.5,6,3,0,4,4,4,null,Weapon_Metal,Axe
+Greataxe,0.5,8,3,0,1,6,4,null,Weapon_Metal,Axe
+Halberd,0.5,7,4,0,1,6,4,null,Weapon_Metal,Axe
+Buckler,0.5,0,3,0,0,2,4,null,Weapon_WoodMetal,Shield
+Kite Shield,0.5,0,5,0,0,3,4,null,Weapon_Metal,Shield
+Tower Greatshield,0.5,0,8,0,0,6,4,null,Weapon_Metal,Shield
+Coif,0.5,0,1,0,0,1,4,null,Armor,Head
+Helm,0.5,0,3,0,0,2,4,null,Armor,Head
+Visor,0.5,0,5,0,0,3,4,null,Armor,Head
+Brigandine,0.5,0,3,0,0,4,4,null,Armor,Torso
+Chainmail,0.5,0,5,0,0,6,4,null,Armor,Torso
+Hauberk,0.5,0,6,0,0,7,4,null,Armor,Torso
+Breastplate,0.5,0,10,0,0,9,4,null,Armor,Torso
+Cuirass,0.5,0,15,0,0,12,4,null,Armor,Torso
+Mail Skirt,0.5,0,6,0,1,7,4,null,Armor,Legs
+Plate Legs,0.5,0,9,0,0,9,4,null,Armor,Legs
+Gloves,0.5,0,1,0,0,1,4,null,Armor,Hands
+Cuff,0.5,0,2,0,0,1,4,null,Armor,Hands
+Vambrace,0.5,0,3,0,0,2,4,null,Armor,Hands
+Gauntlets,0.5,0,5,0,0,3,4,null,Armor,Hands
+Pauldron,0.5,0,5,0,0,5,4,null,Armor,Shoulders

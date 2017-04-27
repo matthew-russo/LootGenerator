@@ -1,0 +1,22 @@
+{
+    "Honor": 5,
+    "Copper": 5,
+    "Tin": 0,
+    "Iron": 3,
+    "Coal": 0,
+    "Steel": 0,
+    "Gold": 0,
+    "Titanium": 0,
+    "Diamond": 0,
+    "Meteorite": 0,
+    "Logs": 0,
+    "OakLogs": 0,
+    "WillowLogs": 0,
+    "YewLogs": 0,
+    "ElderLogs": 0,
+    "Concrete": 0,
+    "Bricks": 0,
+    "Happiness": 0,
+    "Culture": 0,
+    "Science": 2
+}
