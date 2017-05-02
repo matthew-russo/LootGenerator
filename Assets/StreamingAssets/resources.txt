@@ -1,5 +1,5 @@
 {
-    "Honor": 5,
+    "Honor": 7,
     "Copper": 5,
     "Tin": 0,
     "Iron": 3,

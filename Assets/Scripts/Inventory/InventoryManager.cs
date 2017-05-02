@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using LootGenerator;
 using Patterns;
 using UnityEngine;
@@ -9,12 +11,23 @@ public class InventoryManager : Singleton<InventoryManager>
     public List<InventoryItemBaseClass> currentInventory;
     public GameObject[] inventorySlots;
 
+    private string pathName;
+    private const string fileName = "inventory.dat";
+
     void Start()
     {
+        pathName = Application.streamingAssetsPath;
         currentInventory = new List<InventoryItemBaseClass>(24);
+        LoadInventory();
+        UpdateInventory();
     }
 
-	public void UpdateInventory() {
+    void OnDestroy()
+    {
+        SaveInventory();
+    }
+
+    public void UpdateInventory() {
 	    for (int i = 0; i < currentInventory.Count; ++i)
 	    {
 	        inventorySlots[i].name = currentInventory[i].name;
@@ -26,4 +39,24 @@ public class InventoryManager : Singleton<InventoryManager>
             newInvItem.ConvertToContainer(currentInventory[i]);
 	    }
 	}
+
+    public void SaveInventory()
+    {
+        string filePath = Path.Combine(pathName, fileName);
+
+        FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, currentInventory);
+        fs.Close();
+    }
+
+    public void LoadInventory()
+    {
+        string filePath = Path.Combine(pathName, fileName);
+
+        FileStream stream = new FileStream(filePath, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        currentInventory = (List<InventoryItemBaseClass>)bf.Deserialize(stream);
+        stream.Close();
+    }
 }

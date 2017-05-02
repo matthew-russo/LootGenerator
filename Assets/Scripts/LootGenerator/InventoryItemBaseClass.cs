@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LootGenerator
 {
+    [Serializable]
     public class InventoryItemBaseClass
     {
         // Stats
@@ -20,6 +22,7 @@ namespace LootGenerator
         public string pieceType;
     }
 
+    [Serializable]
     public class Item : InventoryItemBaseClass
     {
         public Piece material;
@@ -76,6 +79,7 @@ namespace LootGenerator
         }
     }
 
+    [Serializable]
     public class Piece : InventoryItemBaseClass
     {
         public Piece(string n, double r, int a, int d, int i, int s, int w, int v, string e, string st, string pt)
