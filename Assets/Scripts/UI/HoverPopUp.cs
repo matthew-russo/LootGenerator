@@ -5,52 +5,83 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class HoverPopUp : MonoBehaviour
+public class HoverPopUp : EventTrigger
 {
-    public GameObject HoverPopUpUIObject;
-    public GameObject selectedObject;
+    public const int HOVERPOPUP_WIDTH = 320;
+    public const int HOVERPOPUP_HEIGHT = 220;
+    public const int INVPIECE_SIZE = 60;
 
-    public Text name;
-    public Text attack;
-    public Text defense;
-    public Text intelligence;
-    public Text speed;
-    public Text weight;
-    public Text value;
-    public Text effect;
-    public Text type;
+    public GameObject HoverPopUpUIObject;
+    public RectTransform rectTransform;
+    public FadeInFadeOut fadeScript;
+
+    public Text Name;
+    public Text Attack;
+    public Text Defense;
+    public Text Intelligence;
+    public Text Speed;
+    public Text Weight;
+    public Text Value;
+    public Text Effect;
+    public Text Type;
 
     void Start()
     {
-        HoverPopUpUIObject.SetActive(false);
+        Name = HoverPopUpUIObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        Attack = HoverPopUpUIObject.transform.GetChild(0).GetChild(1).GetComponent<Text>();
+        Defense = HoverPopUpUIObject.transform.GetChild(0).GetChild(2).GetComponent<Text>();
+        Intelligence = HoverPopUpUIObject.transform.GetChild(0).GetChild(3).GetComponent<Text>();
+        Effect = HoverPopUpUIObject.transform.GetChild(0).GetChild(4).GetComponent<Text>();
+        Speed = HoverPopUpUIObject.transform.GetChild(0).GetChild(5).GetComponent<Text>();
+        Weight = HoverPopUpUIObject.transform.GetChild(0).GetChild(6).GetComponent<Text>();
+        Value = HoverPopUpUIObject.transform.GetChild(0).GetChild(7).GetComponent<Text>();
+        Type = HoverPopUpUIObject.transform.GetChild(0).GetChild(8).GetComponent<Text>();
+
+        rectTransform = HoverPopUpUIObject.GetComponent<RectTransform>();
+        fadeScript = HoverPopUpUIObject.GetComponent<FadeInFadeOut>();
     }
 
-	void Update ()
-	{
-	    //EventSystem.current.IsPointerOverGameObject();
+    public override void OnPointerEnter(PointerEventData data)
+    {
+        InventoryPieceContainer invPiece = GetComponent<InventoryPieceContainer>();
+        if (invPiece != null)
+        {
+            fadeScript.timeToFadeIn = true;
+            fadeScript.timeToFadeOut = false;
+            HoverPopUpUIObject.SetActive(true);
+            PositionHoverPopUp();
+            GiveDataToHoverPopUp(GetComponent<InventoryPieceContainer>());
+            StartCoroutine(fadeScript.PopUpFadeIn());
+        }
+    }
 
-	    Ray cameraToGame = new Ray(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-	    RaycastHit rayHit;
+    public override void OnPointerExit(PointerEventData data)
+    {
+        InventoryPieceContainer invPiece = GetComponent<InventoryPieceContainer>();
+        if (invPiece != null)
+        {
+            fadeScript.timeToFadeIn = false;
+            fadeScript.timeToFadeOut = true;
+            StartCoroutine(fadeScript.PopUpFadeOut());
+        }
+    }
 
-	    if(Physics.Raycast(cameraToGame, out rayHit))
-	    {
-	        InventoryPieceContainer invPiece = GetComponent<InventoryPieceContainer>();
-	        if (rayHit.transform.gameObject.GetComponent<InventoryPieceContainer>())
-	        {
-	            HoverPopUpUIObject.SetActive(true);
-                
-	        }
-	    }
-        else if (HoverPopUpUIObject.activeInHierarchy)
-	    {
-	        HoverPopUpUIObject.SetActive(false);
-	    }
+    public void GiveDataToHoverPopUp(InventoryPieceContainer Item)
+    {
+        Name.text = "Name: " + Item.name;
+        Attack.text = "Attack: " + Item.attack;
+        Defense.text = "Defense: " + Item.defense;
+        Intelligence.text = "Intelligence: " + Item.intelligence;
+        Weight.text = "Weight: " + Item.weight;
+        Speed.text = "Speed: " + Item.speed;
+        Value.text = "Value: " + Item.value;
+        Effect.text = "Effect: " + Item.effect;
+        Type.text = "Type: " + Item.subType;
+    }
 
-	    // 1. IS MOUSE OVER OBJECT?
-	    // 1a. TURN POP UP ON
-	    // 1b. MOVE POP UP TO OBJECTS LOCATION + Y OFFSET
-	    // 1c. UPDATE UI TEXT WITH HOVERED OBJECTS STATS
-
-	    // 2. ELSE TURN POP UP OFF
-	}
+    public void PositionHoverPopUp()
+    {
+        HoverPopUpUIObject.transform.SetParent(transform);
+        rectTransform.anchoredPosition = new Vector2(0f, 165f);
+    }
 }

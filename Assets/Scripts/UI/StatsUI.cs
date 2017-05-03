@@ -13,6 +13,8 @@ public class StatsUI : MonoBehaviour
     public Text Speed;
     public Text Weight;
     public Text Value;
+    public Text Effect;
+    public Text Type;
 
     public Item currentItem;
     public Piece currentPiece;

@@ -14,12 +14,23 @@ public class InventoryManager : Singleton<InventoryManager>
     private string pathName;
     private const string fileName = "inventory.dat";
 
+    public GameObject HoverPopUpUIObject;
+
     void Start()
     {
         pathName = Application.streamingAssetsPath;
         currentInventory = new List<InventoryItemBaseClass>(24);
         LoadInventory();
         UpdateInventory();
+
+        GameObject[] inventorySlots = GameObject.FindGameObjectsWithTag("InventorySlot");
+        foreach (GameObject inventorySlot in inventorySlots)
+        {
+            HoverPopUp HoverPopUpScript = inventorySlot.AddComponent<HoverPopUp>();
+            HoverPopUpScript.HoverPopUpUIObject = HoverPopUpUIObject;
+        }
+        HoverPopUpUIObject.SetActive(false);
+
     }
 
     void OnDestroy()
