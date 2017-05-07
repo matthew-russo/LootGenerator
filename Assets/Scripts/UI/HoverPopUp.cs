@@ -44,7 +44,7 @@ public class HoverPopUp : EventTrigger
     public override void OnPointerEnter(PointerEventData data)
     {
         InventoryPieceContainer invPiece = GetComponent<InventoryPieceContainer>();
-        if (invPiece != null)
+        if (invPiece != null && !InventoryManager.Instance.Dragging)
         {
             fadeScript.timeToFadeIn = true;
             fadeScript.timeToFadeOut = false;
@@ -58,7 +58,7 @@ public class HoverPopUp : EventTrigger
     public override void OnPointerExit(PointerEventData data)
     {
         InventoryPieceContainer invPiece = GetComponent<InventoryPieceContainer>();
-        if (invPiece != null)
+        if (invPiece != null && !InventoryManager.Instance.Dragging)
         {
             fadeScript.timeToFadeIn = false;
             fadeScript.timeToFadeOut = true;
@@ -75,7 +75,7 @@ public class HoverPopUp : EventTrigger
         Weight.text = "Weight: " + Item.weight;
         Speed.text = "Speed: " + Item.speed;
         Value.text = "Value: " + Item.value;
-        Effect.text = "Effect: " + Item.effect;
+        Effect.text = "Effect: " + Item.effect.Replace("Effect","").Replace("null","None");
         Type.text = "Type: " + Item.subType;
     }
 

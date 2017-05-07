@@ -20,6 +20,28 @@ namespace LootGenerator
         public string effect;
         public string subType;
         public string pieceType;
+        public string pathToImage;
+
+        public InventoryItemBaseClass()
+        {
+            
+        }
+
+        public InventoryItemBaseClass(InventoryPieceContainer fromPieceContainer)
+        {
+            name = fromPieceContainer.name;
+            rarity = fromPieceContainer.rarity;
+            attack = fromPieceContainer.attack;
+            defense = fromPieceContainer.defense;
+            intelligence = fromPieceContainer.intelligence;
+            speed = fromPieceContainer.speed;
+            weight = fromPieceContainer.weight;
+            value = fromPieceContainer.value;
+            effect = fromPieceContainer.effect;
+            subType = fromPieceContainer.subType;
+            pieceType = fromPieceContainer.pieceType;
+            pathToImage = fromPieceContainer.pathToImage;
+        }
     }
 
     [Serializable]
@@ -32,6 +54,8 @@ namespace LootGenerator
 
         public Item(Piece mat, Piece orn, Piece t, Piece equipPiece)
         {
+            // THE ORDER MATTERS BECAUSE THE NAME IS CONSTRUCTED IN ORDER.
+            //
             if (t != null)
             {
                 title = t;
@@ -43,6 +67,7 @@ namespace LootGenerator
                 weight += title.weight;
                 value += title.value;
             }
+
             if (mat != null)
             {
                 material = mat;
@@ -63,6 +88,10 @@ namespace LootGenerator
             speed += equipPiece.speed;
             weight += equipPiece.weight;
             value += equipPiece.value;
+            effect = equipPiece.effect;
+            pathToImage = equipPiece.pathToImage;
+
+            pathToImage = pathToImage.Replace("frame", mat.name.ToLower().Trim());
 
             if (orn != null)
             {
@@ -76,13 +105,16 @@ namespace LootGenerator
                 value += ornament.value;
                 effect = ornament.effect;
             }
+
+            subType = "Completed Item!";    
         }
+
     }
 
     [Serializable]
     public class Piece : InventoryItemBaseClass
     {
-        public Piece(string n, double r, int a, int d, int i, int s, int w, int v, string e, string st, string pt)
+        public Piece(string n, double r, int a, int d, int i, int s, int w, int v, string e, string st, string pt, string path)
         {
             name = n;
             rarity = r;
@@ -95,6 +127,7 @@ namespace LootGenerator
             effect = e;
             subType = st;
             pieceType = pt;
+            pathToImage = path;
         }
 
         public Piece(Piece otherPiece)
@@ -110,6 +143,23 @@ namespace LootGenerator
             effect = otherPiece.effect;
             subType = otherPiece.subType;
             pieceType = otherPiece.pieceType;
+            pathToImage = otherPiece.pathToImage;
+        }
+
+        public Piece(InventoryPieceContainer fromPieceContainer)
+        {
+            name = fromPieceContainer.name.Split(' ')[0];
+            rarity = fromPieceContainer.rarity;
+            attack = fromPieceContainer.attack;
+            defense = fromPieceContainer.defense;
+            intelligence = fromPieceContainer.intelligence;
+            speed = fromPieceContainer.speed;
+            weight = fromPieceContainer.weight;
+            value = fromPieceContainer.value;
+            effect = fromPieceContainer.effect;
+            subType = fromPieceContainer.subType;
+            pieceType = fromPieceContainer.pieceType;
+            pathToImage = fromPieceContainer.pathToImage;
         }
     }
 }

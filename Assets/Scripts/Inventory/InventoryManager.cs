@@ -5,10 +5,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using LootGenerator;
 using Patterns;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
-    public List<InventoryItemBaseClass> currentInventory;
+    public List<InventoryPieceContainer> currentInventory;
+    public List<InventoryItemBaseClass> loadedInventory;
     public GameObject[] inventorySlots;
 
     private string pathName;
@@ -16,12 +18,20 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public GameObject HoverPopUpUIObject;
 
+    public bool Dragging;
+
+    public GameObject EquipmentSlot;
+    public GameObject MaterialSlot;
+    public GameObject OrnamentSlot;
+    public GameObject TitleSlot;
+
     void Start()
     {
         pathName = Application.streamingAssetsPath;
-        currentInventory = new List<InventoryItemBaseClass>(24);
+        currentInventory = new List<InventoryPieceContainer>(24);
+        loadedInventory = new List<InventoryItemBaseClass>(24);
+        SaveInventory();
         LoadInventory();
-        UpdateInventory();
 
         GameObject[] inventorySlots = GameObject.FindGameObjectsWithTag("InventorySlot");
         foreach (GameObject inventorySlot in inventorySlots)
@@ -31,6 +41,10 @@ public class InventoryManager : Singleton<InventoryManager>
         }
         HoverPopUpUIObject.SetActive(false);
 
+        EquipmentSlot = GameObject.Find("Equipment Slot").transform.GetChild(0).gameObject;
+        MaterialSlot = GameObject.Find("Material Slot").transform.GetChild(0).gameObject;
+        OrnamentSlot = GameObject.Find("Ornament Slot").transform.GetChild(0).gameObject;
+        TitleSlot = GameObject.Find("Title Slot").transform.GetChild(0).gameObject;
     }
 
     void OnDestroy()
@@ -38,18 +52,30 @@ public class InventoryManager : Singleton<InventoryManager>
         SaveInventory();
     }
 
-    public void UpdateInventory() {
-	    for (int i = 0; i < currentInventory.Count; ++i)
-	    {
-	        inventorySlots[i].name = currentInventory[i].name;
-	        if (inventorySlots[i].GetComponent<InventoryPieceContainer>() != null)
-	        {
-	            Destroy(inventorySlots[i].GetComponent<InventoryPieceContainer>());
-	        }
-	        InventoryPieceContainer newInvItem = inventorySlots[i].AddComponent<InventoryPieceContainer>();
-            newInvItem.ConvertToContainer(currentInventory[i]);
-	    }
-	}
+    public void ConvertBaseClassToContainer()
+    {
+        ClearInventory();
+        for (int i = 0; i < loadedInventory.Count; ++i)
+        {
+            InventoryPieceContainer newInvItem = inventorySlots[i].AddComponent<InventoryPieceContainer>();
+            newInvItem.ConvertToContainer(loadedInventory[i]);
+            currentInventory.Add(newInvItem);
+            if (newInvItem.subType != "Completed Item!")
+            {
+                inventorySlots[i].AddComponent<DraggableObject>();
+            }
+            newInvItem.showImage = true;
+        }
+    }
+
+    public void UpdateBaseList()
+    {
+        loadedInventory.Clear();
+        for (int i = 0; i < currentInventory.Count; ++i)
+        {
+            loadedInventory.Add(new InventoryItemBaseClass(currentInventory[i]));
+        }
+    }
 
     public void SaveInventory()
     {
@@ -57,7 +83,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
         FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate);
         BinaryFormatter bf = new BinaryFormatter();
-        bf.Serialize(fs, currentInventory);
+        ConvertInventory();
+        bf.Serialize(fs, loadedInventory);
         fs.Close();
     }
 
@@ -67,7 +94,31 @@ public class InventoryManager : Singleton<InventoryManager>
 
         FileStream stream = new FileStream(filePath, FileMode.Open);
         BinaryFormatter bf = new BinaryFormatter();
-        currentInventory = (List<InventoryItemBaseClass>)bf.Deserialize(stream);
+        loadedInventory = (List<InventoryItemBaseClass>)bf.Deserialize(stream);
         stream.Close();
+
+        for (int i = 0; i < loadedInventory.Count; ++i)
+        {
+            currentInventory[i].ConvertToContainer(loadedInventory[i]);
+        }
+    }
+
+    public void ConvertInventory()
+    {
+        for (int i = 0; i < currentInventory.Count; ++i)
+        {
+            loadedInventory[i] = new InventoryItemBaseClass(currentInventory[i]);
+        }
+    }
+
+    public void ClearInventory()
+    {
+        currentInventory.Clear();
+        for (int i = 0; i < inventorySlots.Length; ++i)
+        {
+            Destroy(inventorySlots[i].GetComponent<InventoryPieceContainer>());
+            inventorySlots[i].GetComponent<Image>().enabled = false;
+            Destroy(inventorySlots[i].GetComponent<DraggableObject>());
+        }
     }
 }
