@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using LootGenerator;
+using Generator;
 
 // Some nice static util functions. Should look familiar from lecture.
 public class GlobalFuncs {

@@ -1,12 +1,12 @@
 {
-    "Honor": 65,
-    "Copper": 58,
+    "Honor": 977,
+    "Copper": 61,
     "Tin": 35,
-    "Iron": 54,
+    "Iron": 56,
     "Coal": 42,
     "Steel": 0,
     "Gold": 26,
-    "Titanium": 23,
+    "Titanium": 25,
     "Diamond": 25,
     "Meteorite": 13,
     "Logs": 15,
@@ -18,5 +18,5 @@
     "Bricks": 17,
     "Happiness": 26,
     "Culture": 17,
-    "Science": 35
+    "Science": 38
 }

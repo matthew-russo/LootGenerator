@@ -1,54 +1,54 @@
 Name,Rarity,Attack,Defense,Intelligence,Speed,Weight,Value,Special/Effect,SubType,PieceType,PathToImage
-Bronze,0.5,2,2,2,2,2,2,null,Material,Metal,Sprites/Resources/Raw/Bronze
-Iron,0.3,5,5,5,5,3,5,null,Material,Metal,Sprites/Resources/Raw/Iron
-Steel,0.15,8,8,8,8,3,10,null,Material,Metal,Sprites/Resources/Raw/Steel
-Gold,0.15,5,5,5,5,3,20,null,Material,Metal,Sprites/Resources/Raw/Gold
-Titanium,0.03,11,11,11,11,6,25,null,Material,Metal,Sprites/Resources/Raw/Titanium
-Diamond,0.03,15,15,15,15,6,25,null,Material,Metal,Sprites/Resources/Raw/Diamond
-Meteorite,0.005,20,20,20,20,8,50,null,Material,Metal,Sprites/Resources/Raw/Meteorite
-Regular,1,1,1,1,1,1,1,null,Material,Wood,Sprites/Resources/Raw/Logs
-Oak,0.5,3,3,3,3,3,5,null,Material,Wood,Sprites/Resources/Raw/Oak
-Willow,0.3,7,7,7,7,7,10,null,Material,Wood,Sprites/Resources/Raw/Willow
-Yew,0.15,11,11,11,11,4,25,null,Material,Wood,Sprites/Resources/Raw/Yew
-Elder,0.03,15,15,15,15,6,50,null,Material,Wood,Sprites/Resources/Raw/Elder
-of Fire,0.15,4,4,0,0,1,25,Fire Damage,Ornament,Ornament,Sprites/Ornaments/FireGem
-of Ice,0.15,2,6,0,0,1,25,Ice Damage,Ornament,Ornament,Sprites/Ornaments/IceGem
-of Lightning,0.15,6,2,0,0,1,25,Lightning Damage,Ornament,Ornament,Sprites/Ornaments/LightningGem
-of Blood,0.15,4,0,0,0,1,25,Bleeding Effect,Ornament,Ornament,Sprites/Ornaments/BloodGem
-of the Sun,0.15,0,8,0,2,1,25,Light Damage,Ornament,Ornament,Sprites/Ornaments/SunGem
-of the Moon,0.15,8,0,0,2,1,25,Dark Damage,Ornament,Ornament,Sprites/Ornaments/MoonGem
-of Dreams,0.15,0,0,10,6,0,25,Sleep Effect,Ornament,Ornament,Sprites/Ornaments/DreamGem
-of Fear,0.15,0,10,0,8,0,25,Fear Effect,Ornament,Ornament,Sprites/Ornaments/FearGem
+Bronze,0.8,2,2,2,2,2,2,null,Material,Metal,Sprites/Resources/Raw/Bronze
+Iron,0.6,5,5,5,5,3,5,null,Material,Metal,Sprites/Resources/Raw/Iron
+Steel,0.5,8,8,8,8,3,10,null,Material,Metal,Sprites/Resources/Raw/Steel
+Gold,0.4,5,5,5,5,3,20,null,Material,Metal,Sprites/Resources/Raw/Gold
+Titanium,0.3,11,11,11,11,6,25,null,Material,Metal,Sprites/Resources/Raw/Titanium
+Diamond,0.2,15,15,15,15,6,25,null,Material,Metal,Sprites/Resources/Raw/Diamond
+Meteorite,0.1,20,20,20,20,8,50,null,Material,Metal,Sprites/Resources/Raw/Meteorite
+Regular,0.8,1,1,1,1,1,1,null,Material,Wood,Sprites/Resources/Raw/Logs
+Oak,0.6,3,3,3,3,3,5,null,Material,Wood,Sprites/Resources/Raw/Oak
+Willow,0.4,7,7,7,7,7,10,null,Material,Wood,Sprites/Resources/Raw/Willow
+Yew,0.2,11,11,11,11,4,25,null,Material,Wood,Sprites/Resources/Raw/Yew
+Elder,0.1,15,15,15,15,6,50,null,Material,Wood,Sprites/Resources/Raw/Elder
+of Fire,0.9,4,4,0,0,1,25,Fire Damage,Ornament,Ornament,Sprites/Ornaments/FireGem
+of Ice,0.8,2,6,0,0,1,25,Ice Damage,Ornament,Ornament,Sprites/Ornaments/IceGem
+of Lightning,0.7,6,2,0,0,1,25,Lightning Damage,Ornament,Ornament,Sprites/Ornaments/LightningGem
+of Blood,0.6,4,0,0,0,1,25,Bleeding Effect,Ornament,Ornament,Sprites/Ornaments/BloodGem
+of the Sun,0.5,0,8,0,2,1,25,Light Damage,Ornament,Ornament,Sprites/Ornaments/SunGem
+of the Moon,0.4,8,0,0,2,1,25,Dark Damage,Ornament,Ornament,Sprites/Ornaments/MoonGem
+of Dreams,0.3,0,0,10,6,0,25,Sleep Effect,Ornament,Ornament,Sprites/Ornaments/DreamGem
+of Fear,0.2,0,10,0,8,0,25,Fear Effect,Ornament,Ornament,Sprites/Ornaments/FearGem
 Heavy,0.3,10,0,0,0,7,25,null,Title,Title,Sprites/Titles/Rare
-Sharp,0.3,2,0,0,8,0,25,null,Title,Title,Sprites/Titles/Rare
-Royal,0.3,2,6,0,2,0,5,null,Title,Title,Sprites/Titles/Rare
-Peasant's,0.3,2,2,2,2,2,5,null,Title,Title,Sprites/Titles/Rare
-Destroyer's,0.15,8,0,0,2,0,10,null,Title,Title,Sprites/Titles/Epic
-Ancient,0.15,2,2,7,5,0,10,null,Title,Title,Sprites/Titles/Epic
-Abyssal,0.03,10,2,0,4,0,10,null,Title,Title,Sprites/Titles/Legendary
-Tyrant's,0.03,8,8,0,8,0,25,null,Title,Title,Sprites/Titles/Legendary
-Immaculate,0.005,6,0,12,6,0,25,null,Title,Title,Sprites/Titles/Mythical
+Sharp,0.9,2,0,0,8,0,25,null,Title,Title,Sprites/Titles/Rare
+Royal,0.7,2,6,0,2,0,5,null,Title,Title,Sprites/Titles/Rare
+Peasant's,0.6,2,2,2,2,2,5,null,Title,Title,Sprites/Titles/Rare
+Destroyer's,0.4,8,0,0,2,0,10,null,Title,Title,Sprites/Titles/Epic
+Ancient,0.3,2,2,7,5,0,10,null,Title,Title,Sprites/Titles/Epic
+Abyssal,0.2,10,2,0,4,0,10,null,Title,Title,Sprites/Titles/Legendary
+Tyrant's,0.1,8,8,0,8,0,25,null,Title,Title,Sprites/Titles/Legendary
+Immaculate,0.05,6,0,12,6,0,25,null,Title,Title,Sprites/Titles/Mythical
 Dagger,0.9,1,1,4,6,1,2,null,Weapon_Metal,Sword,Sprites/Weapons/Dagger/dagger_frame
-Short Sword,0.5,3,1,4,4,2,4,null,Weapon_Metal,Sword,Sprites/Weapons/ShortSword/shortSword_frame
-Long Sword,0.5,5,2,2,3,3,4,null,Weapon_Metal,Sword,Sprites/Weapons/LongSword/longSword_frame
+Short Sword,0.8,3,1,4,4,2,4,null,Weapon_Metal,Sword,Sprites/Weapons/ShortSword/shortSword_frame
+Long Sword,0.6,5,2,2,3,3,4,null,Weapon_Metal,Sword,Sprites/Weapons/LongSword/longSword_frame
 Greatsword,0.3,10,5,0,2,6,6,null,Weapon_Metal,Sword,Sprites/Weapons/GreatSword/greatSword_frame
-Shortbow,0.5,6,0,0,8,2,4,null,Weapon_Wood,Bow,Sprites/Weapons/ShortBow/shortBow_frame
-Longbow,0.5,8,0,0,4,4,4,null,Weapon_Wood,Bow,Sprites/Weapons/LongBow/longBow_frame
-Crossbow,0.5,10,0,0,6,5,4,null,Weapon_Wood,Bow,Sprites/Weapons/Crossbow/crossbow_frame
-Short Staff,0.5,2,2,7,4,3,4,null,Weapon_Wood,Staff,Sprites/Weapons/ShortStaff/shortStaff_frame
+Shortbow,0.8,6,0,0,8,2,4,null,Weapon_Wood,Bow,Sprites/Weapons/ShortBow/shortBow_frame
+Longbow,0.6,8,0,0,4,4,4,null,Weapon_Wood,Bow,Sprites/Weapons/LongBow/longBow_frame
+Crossbow,0.4,10,0,0,6,5,4,null,Weapon_Wood,Bow,Sprites/Weapons/Crossbow/crossbow_frame
+Short Staff,0.7,2,2,7,4,3,4,null,Weapon_Wood,Staff,Sprites/Weapons/ShortStaff/shortStaff_frame
 Long Staff,0.5,2,4,10,1,5,4,null,Weapon_Wood,Staff,Sprites/Weapons/LongStaff/longStaff_frame
-Axe,0.5,4,2,0,5,3,4,null,Weapon_Metal,Axe,Sprites/Weapons/Axe/axe_frame
-Berserker Axe,0.5,6,3,0,4,4,4,null,Weapon_Metal,Axe,Sprites/Weapons/BerserkerAxe/berserkerAxe_frame
+Axe,7,4,2,0,5,3,4,null,Weapon_Metal,Axe,Sprites/Weapons/Axe/axe_frame
+Berserker Axe,0.4,6,3,0,4,4,4,null,Weapon_Metal,Axe,Sprites/Weapons/BerserkerAxe/berserkerAxe_frame
 Halberd,0.5,7,4,0,1,6,4,null,Weapon_Metal,Axe,Sprites/Weapons/Halberd/halberd_frame
-Buckler,0.5,0,3,0,0,2,4,null,Weapon_Metal,Shield,Sprites/Weapons/Buckler/buckler_frame
-Kite Shield,0.5,0,5,0,0,3,4,null,Weapon_Metal,Shield,Sprites/Weapons/KiteShield/kiteShield_frame
-Coif,0.5,0,1,0,0,1,4,null,Armor_Metal,Head,Sprites/Armor/Coif/coif_frame
-Helm,0.5,0,3,0,0,2,4,null,Armor_Metal,Head,Sprites/Armor/Helm/helm_frame
-Visor,0.5,0,5,0,0,3,4,null,Armor_Metal,Head,Sprites/Armor/Visor/visor_frame
-Brigandine,0.5,0,3,0,0,4,4,null,Armor_Metal,Torso,Sprites/Armor/Brigandine/brigandine_frame
-Chainmail,0.5,0,5,0,0,6,4,null,Armor_Metal,Torso,Sprites/Armor/Chainmail/chainmail_frame
-Breastplate,0.5,0,10,0,0,9,4,null,Armor_Metal,Torso,Sprites/Armor/Breastplate/breastplate_frame
+Buckler,0.75,0,3,0,0,2,4,null,Weapon_Metal,Shield,Sprites/Weapons/Buckler/buckler_frame
+Kite Shield,0.55,0,5,0,0,3,4,null,Weapon_Metal,Shield,Sprites/Weapons/KiteShield/kiteShield_frame
+Coif,0.8,0,1,0,0,1,4,null,Armor_Metal,Head,Sprites/Armor/Coif/coif_frame
+Helm,0.6,0,3,0,0,2,4,null,Armor_Metal,Head,Sprites/Armor/Helm/helm_frame
+Visor,0.4,0,5,0,0,3,4,null,Armor_Metal,Head,Sprites/Armor/Visor/visor_frame
+Brigandine,0.7,0,3,0,0,4,4,null,Armor_Metal,Torso,Sprites/Armor/Brigandine/brigandine_frame
+Chainmail,0.55,0,5,0,0,6,4,null,Armor_Metal,Torso,Sprites/Armor/Chainmail/chainmail_frame
+Breastplate,0.4,0,10,0,0,9,4,null,Armor_Metal,Torso,Sprites/Armor/Breastplate/breastplate_frame
 Plate Legs,0.5,0,9,0,0,9,4,null,Armor_Metal,Legs,Sprites/Armor/PlateLegs/plateLegs_frame
-Vambrace,0.5,0,3,0,0,2,4,null,Armor_Metal,Hands,Sprites/Armor/Vambrace/vambrace_frame
-Gauntlets,0.5,0,5,0,0,3,4,null,Armor_Metal,Hands,Sprites/Armor/Gauntlets/gauntlets_frame
-Pauldron,0.5,0,5,0,0,5,4,null,Armor_Metal,Shoulders,Sprites/Armor/Pauldron/pauldron_frame
+Vambrace,0.65,0,3,0,0,2,4,null,Armor_Metal,Hands,Sprites/Armor/Vambrace/vambrace_frame
+Gauntlets,0.55,0,5,0,0,3,4,null,Armor_Metal,Hands,Sprites/Armor/Gauntlets/gauntlets_frame
+Pauldron,0.6,0,5,0,0,5,4,null,Armor_Metal,Shoulders,Sprites/Armor/Pauldron/pauldron_frame

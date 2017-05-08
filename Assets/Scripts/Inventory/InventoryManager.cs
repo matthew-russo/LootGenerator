@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using LootGenerator;
+using Generator;
 using Patterns;
 using UnityEngine;
 using UnityEngine.UI;

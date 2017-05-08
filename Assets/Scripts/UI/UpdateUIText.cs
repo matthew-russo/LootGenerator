@@ -32,7 +32,7 @@ public class UpdateUIText : MonoBehaviour
 
     void Update ()
 	{
-	    honorText.text = "Honor : " + ResourceContainer.Instance.Honor.ToString();
+	    honorText.text = "Arbitrary Numbers : " + ResourceContainer.Instance.Honor.ToString();
 
         copperText.text = "Copper : " + ResourceContainer.Instance.Copper.ToString();
         tinText.text = "Tin : " + ResourceContainer.Instance.Tin.ToString();

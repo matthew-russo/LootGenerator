@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using LootGenerator;
+using System.Text.RegularExpressions;
+using Generator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,6 +59,14 @@ public class Crafting : MonoBehaviour
         InventoryManager.Instance.UpdateBaseList();
 
         Item craftedItem = new Item(matPiece,ornamentPiece,titlePiece,equipPiece);
+
+        Regex regex = new Regex(@"([\s][(][_a-zA-Z\s]+[)])");
+
+        Debug.Log(regex.Match("Welcome To (Hello) Yes").ToString());
+
+        craftedItem.name = regex.Replace(craftedItem.name, "");
+        craftedItem.pathToImage = regex.Replace(craftedItem.pathToImage, "").Trim();
+
         InventoryManager.Instance.loadedInventory.Add(craftedItem);
 
         InventoryManager.Instance.ConvertBaseClassToContainer();

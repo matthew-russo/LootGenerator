@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace LootGenerator
+namespace Generator
 {
     public class LootGenerator : Singleton<LootGenerator>
     {
@@ -16,27 +16,76 @@ namespace LootGenerator
         public List<Piece> AllPieces = new List<Piece>();
         public List<Piece> Ornaments = new List<Piece>();
         public List<Piece> Titles = new List<Piece>();
+        public List<Piece> AllEquipment = new List<Piece>();
         public List<Piece> Weapons = new List<Piece>();
         public List<Piece> Armor = new List<Piece>();
+        public List<Piece> AllMaterials = new List<Piece>();
         public List<Piece> Materials_Wood = new List<Piece>();
         public List<Piece> Materials_Metal = new List<Piece>();
 
         public List<string> resources = new List<string>() { "Logs","Copper","Tin","OakLogs","Iron","Coal","WillowLogs","Concrete","Bricks","Steel","YewLogs","Gold","ElderLogs","Titanium","Diamond","Meteorite","Honor","Happiness","Culture","Science",};
 
+        public Text particleText;
+        public ParticleSystem particleSystem;
+
+        //public void Generate()
+        //{
+        //    shopImage.enabled = false;
+        //    float rng = Random.value;
+        //    if (rng < .55)
+        //    {
+        //        // 55% chance to get a resource
+        //        PickResource();
+        //    }
+        //    else if (rng < .95)
+        //    {
+        //        // 25% chance to get a piece
+        //        Piece randomPiece = PickPiece();
+
+        //        // SHOW PIECE STATS AND STUFF
+        //        StatsText.currentItem = null;
+        //        StatsText.currentPiece = randomPiece;
+        //    }
+        //    else
+        //    {
+        //        // 10% chance to get a whole item
+        //        Item randomItem = CreateItem();
+
+        //        StatsText.currentPiece = null;
+        //        StatsText.currentItem = randomItem;
+        //    }
+        //}
+
         public void Generate()
         {
+            shopImage.enabled = false;
             float rng = Random.value;
-            if (rng < .55)
+            if (rng < .32f)
             {
                 // 55% chance to get a resource
                 PickResource();
             }
-            else if (rng < .95)
+            else if (rng < .57f)
             {
-                // 25% chance to get a piece
-                Piece randomPiece = PickPiece();
-
-                // SHOW PIECE STATS AND STUFF
+                Piece randomMaterial = PickPiece(AllMaterials);
+                StatsText.currentItem = null;
+                StatsText.currentPiece = randomMaterial;
+            }
+            else if (rng < .82f)
+            {
+                Piece randomPiece = PickPiece(AllEquipment);
+                StatsText.currentItem = null;
+                StatsText.currentPiece = randomPiece;
+            }
+            else if (rng < .90f)
+            {
+                Piece randomPiece = PickPiece(Ornaments);
+                StatsText.currentItem = null;
+                StatsText.currentPiece = randomPiece;
+            }
+            else if (rng < .98f)
+            {
+                Piece randomPiece = PickPiece(Titles);
                 StatsText.currentItem = null;
                 StatsText.currentPiece = randomPiece;
             }
@@ -53,33 +102,38 @@ namespace LootGenerator
         void PickResource()
         {
             Debug.Log("Resource");
-            float rng = Random.value;
-            GlobalFuncs.GeometricShuffle(resources, rng);
-            if (resources[0] == "Logs") { ResourceContainer.Instance.Logs++; }
-            else if (resources[0] == "Copper") { ResourceContainer.Instance.Copper++; }
-            else if (resources[0] == "Tin") { ResourceContainer.Instance.Tin++; }
-            else if (resources[0] == "OakLogs") { ResourceContainer.Instance.OakLogs++; }
-            else if (resources[0] == "Iron") { ResourceContainer.Instance.Iron++; }
-            else if (resources[0] == "Coal") { ResourceContainer.Instance.Coal++; }
-            else if (resources[0] == "WillowLogs") { ResourceContainer.Instance.WillowLogs++; }
-            else if (resources[0] == "Concrete") { ResourceContainer.Instance.Concrete++; }
-            else if (resources[0] == "Bricks") { ResourceContainer.Instance.Bricks++; }
-            else if (resources[0] == "YewLogs") { ResourceContainer.Instance.YewLogs++; }
-            else if (resources[0] == "Gold") { ResourceContainer.Instance.Gold++; }
-            else if (resources[0] == "ElderLogs") { ResourceContainer.Instance.ElderLogs++; }
-            else if (resources[0] == "Titanium") { ResourceContainer.Instance.Titanium++; }
-            else if (resources[0] == "Diamond") { ResourceContainer.Instance.Diamond++; }
-            else if (resources[0] == "Meteorite") { ResourceContainer.Instance.Meteorite++; }
-            else if (resources[0] == "Honor") { ResourceContainer.Instance.Honor++; }
-            else if (resources[0] == "Happiness") { ResourceContainer.Instance.Happiness++; }
-            else if (resources[0] == "Culture") { ResourceContainer.Instance.Culture++; }
-            else if (resources[0] == "Science") { ResourceContainer.Instance.Science++; }         
-            Debug.Log(resources[0]);
+            int amount = Random.Range(1, 11);
+
+            ResourceContainer.Instance.Honor += amount;
+
+            particleText.text = "+" + amount.ToString() + " Honor";
+            particleSystem.Emit(1);
+            //float rng = Random.value;
+            //GlobalFuncs.GeometricShuffle(resources, rng);
+            //if (resources[0] == "Logs") { ResourceContainer.Instance.Logs++; }
+            //else if (resources[0] == "Copper") { ResourceContainer.Instance.Copper++; }
+            //else if (resources[0] == "Tin") { ResourceContainer.Instance.Tin++; }
+            //else if (resources[0] == "OakLogs") { ResourceContainer.Instance.OakLogs++; }
+            //else if (resources[0] == "Iron") { ResourceContainer.Instance.Iron++; }
+            //else if (resources[0] == "Coal") { ResourceContainer.Instance.Coal++; }
+            //else if (resources[0] == "WillowLogs") { ResourceContainer.Instance.WillowLogs++; }
+            //else if (resources[0] == "Concrete") { ResourceContainer.Instance.Concrete++; }
+            //else if (resources[0] == "Bricks") { ResourceContainer.Instance.Bricks++; }
+            //else if (resources[0] == "YewLogs") { ResourceContainer.Instance.YewLogs++; }
+            //else if (resources[0] == "Gold") { ResourceContainer.Instance.Gold++; }
+            //else if (resources[0] == "ElderLogs") { ResourceContainer.Instance.ElderLogs++; }
+            //else if (resources[0] == "Titanium") { ResourceContainer.Instance.Titanium++; }
+            //else if (resources[0] == "Diamond") { ResourceContainer.Instance.Diamond++; }
+            //else if (resources[0] == "Meteorite") { ResourceContainer.Instance.Meteorite++; }
+            //else if (resources[0] == "Honor") { ResourceContainer.Instance.Honor++; }
+            //else if (resources[0] == "Happiness") { ResourceContainer.Instance.Happiness++; }
+            //else if (resources[0] == "Culture") { ResourceContainer.Instance.Culture++; }
+            //else if (resources[0] == "Science") { ResourceContainer.Instance.Science++; }         
         }
 
-        Piece PickPiece()
+        Piece PickPiece(List<Piece> ListToPickFrom)
         {
-            Piece randomPiece = new Piece(WeightedShuffle(AllPieces) ?? AllPieces[0]);
+            Piece randomPiece = new Piece(WeightedShuffle(ListToPickFrom) ?? ListToPickFrom[0]);
             randomPiece.name = randomPiece.name + " (" + randomPiece.subType + " Piece)";
 
             if (InventoryManager.Instance.currentInventory.Count < 24)
@@ -148,9 +202,11 @@ namespace LootGenerator
             tempList.Sort(ComparePieceRarities);
         
             double rng = Random.value;
+            Debug.Log("RNG: " + rng);
 
             foreach (Piece item in tempList)
             {
+                Debug.Log(item.name + ", rarity: " + item.rarity);
                 if (rng > item.rarity)
                 {
                     return item;

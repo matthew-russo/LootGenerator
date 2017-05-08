@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LootGenerator
+namespace Generator
 {
     [Serializable]
     public class InventoryItemBaseClass
@@ -148,7 +148,7 @@ namespace LootGenerator
 
         public Piece(InventoryPieceContainer fromPieceContainer)
         {
-            name = fromPieceContainer.name.Split(' ')[0];
+            name = fromPieceContainer.name;
             rarity = fromPieceContainer.rarity;
             attack = fromPieceContainer.attack;
             defense = fromPieceContainer.defense;

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using LootGenerator;
+using Generator;
 using UnityEngine;
 using UnityEngine.UI;
 

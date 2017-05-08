@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using LootGenerator;
+using Generator;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -27,6 +27,8 @@ public class HoverPopUp : EventTrigger
 
     void Start()
     {
+        HoverPopUpUIObject = InventoryManager.Instance.HoverPopUpUIObject;
+
         Name = HoverPopUpUIObject.transform.GetChild(0).GetChild(0).GetComponent<Text>();
         Attack = HoverPopUpUIObject.transform.GetChild(0).GetChild(1).GetComponent<Text>();
         Defense = HoverPopUpUIObject.transform.GetChild(0).GetChild(2).GetComponent<Text>();
@@ -39,6 +41,7 @@ public class HoverPopUp : EventTrigger
 
         rectTransform = HoverPopUpUIObject.GetComponent<RectTransform>();
         fadeScript = HoverPopUpUIObject.GetComponent<FadeInFadeOut>();
+
     }
 
     public override void OnPointerEnter(PointerEventData data)
