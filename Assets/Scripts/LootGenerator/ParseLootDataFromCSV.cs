@@ -21,6 +21,10 @@ public class ParseLootDataFromCSV : MonoBehaviour {
 
     void LoadCSVFile()
     {
+        //TextAsset textAsset = Resources.Load("GeneratorData.csv") as TextAsset;
+        //string theText = textAsset.text;
+        //content = theText.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
         _lootDataFilePath = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
         content = System.IO.File.ReadAllLines(_lootDataFilePath);
     }

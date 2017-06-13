@@ -28,41 +28,12 @@ namespace Generator
         public Text particleText;
         public ParticleSystem particleSystem;
 
-        //public void Generate()
-        //{
-        //    shopImage.enabled = false;
-        //    float rng = Random.value;
-        //    if (rng < .55)
-        //    {
-        //        // 55% chance to get a resource
-        //        PickResource();
-        //    }
-        //    else if (rng < .95)
-        //    {
-        //        // 25% chance to get a piece
-        //        Piece randomPiece = PickPiece();
-
-        //        // SHOW PIECE STATS AND STUFF
-        //        StatsText.currentItem = null;
-        //        StatsText.currentPiece = randomPiece;
-        //    }
-        //    else
-        //    {
-        //        // 10% chance to get a whole item
-        //        Item randomItem = CreateItem();
-
-        //        StatsText.currentPiece = null;
-        //        StatsText.currentItem = randomItem;
-        //    }
-        //}
-
         public void Generate()
         {
             shopImage.enabled = false;
             float rng = Random.value;
             if (rng < .32f)
             {
-                // 55% chance to get a resource
                 PickResource();
             }
             else if (rng < .57f)
@@ -101,12 +72,11 @@ namespace Generator
 
         void PickResource()
         {
-            Debug.Log("Resource");
             int amount = Random.Range(1, 11);
 
             ResourceContainer.Instance.Honor += amount;
 
-            particleText.text = "+" + amount.ToString() + " Honor";
+            particleText.text = "+" + amount.ToString() + " A.N.";
             particleSystem.Emit(1);
             //float rng = Random.value;
             //GlobalFuncs.GeometricShuffle(resources, rng);
@@ -202,11 +172,9 @@ namespace Generator
             tempList.Sort(ComparePieceRarities);
         
             double rng = Random.value;
-            Debug.Log("RNG: " + rng);
 
             foreach (Piece item in tempList)
             {
-                Debug.Log(item.name + ", rarity: " + item.rarity);
                 if (rng > item.rarity)
                 {
                     return item;
@@ -236,7 +204,7 @@ namespace Generator
             shopImage.enabled = true;
             shopImage.preserveAspect = true;
             Sprite sprite = new Sprite();
-            sprite = Resources.Load(thing.pathToImage, typeof(Sprite)) as Sprite;
+            sprite = Resources.Load<Sprite>(thing.pathToImage);
             shopImage.sprite = sprite;
             shopImage.color = new Color(255, 255, 255, 255);
         }
